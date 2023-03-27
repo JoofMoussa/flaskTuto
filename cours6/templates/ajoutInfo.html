@@ -1,0 +1,34 @@
+{% extends 'nav.html' %}
+{% block content %}
+<h1>{% block title %} Ajouter Informations {% endblock %}</h1>
+<form method="post">
+	<div class="form-group">
+		<label for="Numero">Numero</label>
+		<input type="text" name="Numero" placeholder="Entrez le Numero" class="form-control" value="{{ request.form['Numero'] }}"></input>
+	</div>
+	
+	<div class="form-group">
+		<label for="Code">Code</label>
+		<input type="text" name="Code" placeholder="Entrez le Code" class="form-control" value="{{ request.form['Code'] }}"></input>
+	</div>
+	
+	<div class="form-group">
+		<label for="Prenom">Prenom</label>
+		<input type="text" name="Prenom" placeholder="Entrez le Prenom" class="form-control" value="{{ request.form['Prenom'] }}"></input>
+	</div>
+	
+	<div class="form-group">
+		<label for="Nom">Nom</label>
+		<input type="text" name="Nom" placeholder="Entrez le Nom" class="form-control" value="{{ request.form['Nom'] }}"></input>
+	</div>
+	
+	<div class="form-group">
+		<label for="Adresse">Adresse</label>
+		<textarea name="Adresse" placeholder="Adresse" class="form-control">{{ request.form['Adresse'] }}</textarea>
+	</div>
+	
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Envoyer</button>
+	</div>
+</form>
+{% endblock %}

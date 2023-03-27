@@ -1,0 +1,37 @@
+{% extends 'nav.html' %}
+{% block content %}
+<h1>{% block title %} Bienvenue a ODC {% endblock %}</h1>
+
+<section class="container table-responsive">
+	<table class="table table-bordered table-striped table-condensed table-responsive pt50">
+		
+		<thead>
+			<h3>Liste infos</h3>
+			<tr>
+				<th>Numero</th>
+				<th>Code</th>
+				<th>Prenom</th>
+				<th>Nom</th>
+				<th>Adresse</th>
+				<th>Date de Creation</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td><a href="#">{{ info['Numero'] }}</a></td>
+				<td>{{ info['Code'] }}</td>
+				<td>{{ info['Prenom'] }}</td>
+				<td>{{ info['Nom'] }}</td>
+				<td>{{ info['Adresse'] }}</td>
+				<td><span class="badge badge-primary">{{ info['DateCreation'] }}</span></td>
+			</tr>
+		</tbody>
+		
+	</table>
+	<p>{{ info['content'] }}</p>
+</section>
+	
+
+{% endblock %}
+

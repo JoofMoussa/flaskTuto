@@ -1,0 +1,45 @@
+{% extends 'nav.html' %}
+{% block content %}
+<h1>{% block title %} Bienvenue a ODC {% endblock %}</h1>
+
+<div class="container table-responsive">
+	<table class="table table-bordered table-striped table-condensed table-responsive pt50">
+		
+		<thead>
+			<center><h3>Liste Etudiants</h3></center>
+			<tr>
+				<th>Numero</th>
+				<th>Code</th>
+				<th>Prenom</th>
+				<th>Nom</th>
+				<th>Adresse</th>
+				<th>Date de Creation</th>
+				<th>Mis a jour</th>
+				<th>Supprimer</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for etd in Etudiant %}
+			<tr>
+				<td><a href="{{url_for('insererDonnee',num=etd['Numero'])}}">{{ etd['Numero'] }}</a></td>
+				<td>{{ etd['Code'] }}</td>
+				<td>{{ etd['Prenom'] }}</td>
+				<td>{{ etd['Nom'] }}</td>
+				<td>{{ etd['Adresse'] }}</td>
+				<td><button class="btn btn-primary">{{ etd['DateCreation'] }}</button></td>
+				<td><button class="btn btn-warning"><a href="{{url_for('modifier',id=etd['Numero'])}}">Mis a Jour</a></button></td>
+				<td>
+				<form action="{{ url_for('supprimer', id=etd['Numero']) }}" method="POST">
+					<input type="submit" value="Supprimer Info" class="btn btn-danger btn-sm" onclick="return confirm('Etes-vous sur de vouloir supprimer?')">
+				</form>
+				</td> 
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>
+</div>
+	
+
+{% endblock %}
